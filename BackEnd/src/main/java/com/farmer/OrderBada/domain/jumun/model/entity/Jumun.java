@@ -1,6 +1,5 @@
-package com.farmer.OrderBada.domain.order.model.entity;
+package com.farmer.OrderBada.domain.jumun.model.entity;
 
-import com.farmer.OrderBada.domain.contact.model.entity.Contact;
 import com.farmer.OrderBada.domain.product.model.entity.Product;
 import com.farmer.OrderBada.domain.user.model.entity.User;
 import jakarta.persistence.*;
@@ -13,37 +12,35 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Order {
+public class Jumun {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long orderId;
+    private Long jumunId;
 
     @ManyToOne
     @JoinColumn(name="buyer_id")
     private User buyer;
 
-    private String getterName;
+    private String receiverName;
 
-    private String getterContact;
+    private String receiverContact;
 
-    @ManyToOne
-    @JoinColumn(name="sender_id")
-    private Contact senderInfo;
-
-    @ManyToOne
-    @JoinColumn(name="getter_id")
-    private Contact getterInfo;
+    private String receiverAddress;
+    private String receiverAddressDetail;
+    private String senderName;
+    private String senderContact;
+    private String senderAddress;
+    private String senderAddressDetail;
 
     @ManyToOne
     @JoinColumn(name="product_id")
     private Product product;
 
-    private int count;
+    private int amount;
 
     private String shippingMessage;
 
     private String state;
-
     private String shippingInfo;
 
 }
