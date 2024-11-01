@@ -18,6 +18,6 @@ public class Store {
 
     private String name;
 
-    @OneToOne(mappedBy = "owner_id")
+    @OneToOne
     private User owner;
 }
