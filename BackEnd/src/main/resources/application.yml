@@ -1,0 +1,33 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: OrderBada
+  #database
+  datasource:
+    url: jdbc:mysql://localhost:3306/orderbada
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: audwls2212!
+
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: update
+
+
+
+# swagger
+springdoc:
+  override-with-generic-response: true
+  default-consumes-media-type: application/json # ?? ??? ??
+  default-produces-media-type: application/json # ?? ??? ??
+  swagger-ui:
+    operations-sorter: method # operations ?? ??? HTTP Method ?
+    tags-sorter: alpha # tag ?? ??? ??? ?
+#    path: "swagger.html" # http://localhost:8080/swagger.html? ?? ??
+
