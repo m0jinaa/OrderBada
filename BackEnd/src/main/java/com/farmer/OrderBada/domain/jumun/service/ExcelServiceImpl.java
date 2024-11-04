@@ -1,6 +1,6 @@
 package com.farmer.OrderBada.domain.jumun.service;
 
-import com.farmer.OrderBada.domain.jumun.model.dto.EmailDto;
+import com.farmer.OrderBada.domain.jumun.model.dto.ExcelDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -8,7 +8,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.List;
 public class ExcelServiceImpl implements ExcelService{
 
     @Override
-    public Workbook makeIntoExcel(List<EmailDto> list) throws IOException {
+    public Workbook makeIntoExcel(List<ExcelDto> list) {
         Workbook wb = new XSSFWorkbook();
 
         //오늘 날짜로 sheet 하나 만들기
@@ -38,7 +37,7 @@ public class ExcelServiceImpl implements ExcelService{
         headerRow.createCell(9).setCellValue("박스수량");
         headerRow.createCell(10).setCellValue("배송메세지1");
 
-        for(EmailDto email : list){
+        for(ExcelDto email : list){
             Row row = sheet.createRow(rowNo++);
 
             row.createCell(0).setCellValue(email.getReceiverName());

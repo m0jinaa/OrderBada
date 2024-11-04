@@ -1,10 +1,9 @@
 spring:
   mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+#    path match:
+#      matching-strategy: ant_path_matcher
   application:
     name: OrderBada
-  #database
   datasource:
     url: jdbc:mysql://localhost:3306/orderbada
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,22 +11,39 @@ spring:
     password: audwls2212!
 
   jpa:
-#    database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
     show-sql: true
     hibernate:
       format_sql: true
       ddl-auto: update
-
+  #email
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dontreply20230111@gmail.com
+    #2단계인증 설정 후 앱비밀번호 설정
+    password: mdyohccclqmzrcst
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
 
 
 # swagger
 springdoc:
   override-with-generic-response: true
-  default-consumes-media-type: application/json # ?? ??? ??
-  default-produces-media-type: application/json # ?? ??? ??
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
   swagger-ui:
-    operations-sorter: method # operations ?? ??? HTTP Method ?
-    tags-sorter: alpha # tag ?? ??? ??? ?
-#    path: "swagger.html" # http://localhost:8080/swagger.html? ?? ??
+    operations-sorter: method
+    tags-sorter: alpha
 
+#환경변수
+example:
+  emailReceiver: mgin0527@naver.com
+  emailSender: dontreply20230111@gmail.com
+  emailName: 고재덕
+  emailContent: 이메일내용
