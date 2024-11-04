@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EmailDto {
+public class ExcelDto {
 
     String receiverName;
     String receiverPhone;
@@ -22,8 +22,8 @@ public class EmailDto {
     String shippingMessage;
 
 
-    public static EmailDto toDto(Jumun jumun){
-        return EmailDto.builder().receiverName(jumun.getReceiverName())
+    public static ExcelDto toDto(Jumun jumun){
+        return ExcelDto.builder().receiverName(jumun.getReceiverName())
                 .receiverPhone(jumun.getReceiverContact())
                 .receiverAddress(jumun.getReceiverAddress()+" "+ jumun.getReceiverAddressDetail())
                 .senderName(jumun.getSenderName())
